@@ -9,7 +9,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 Install deps
 
 ```bash
-uv sync
+uv sync --group dev
 ```
 
 Copy env variables
@@ -28,6 +28,12 @@ Seed data
 
 ```bash
 uv run python -m app.initial_data
+```
+
+Install pre-commit hooks
+
+```bash
+uv run pre-commit install
 ```
 
 # run locally
@@ -49,15 +55,29 @@ Apply:
 uv run alembic upgrade head
 ```
 
+# Linters
+
+Run manually:
+```bash
+uv run mypy --explicit-package-bases app
+uv run ruff check .
+```
+
+# Pre-commit hooks
+
+Pre-commit hooks are set up to automatically run linters before each commit.
+
+The hooks will automatically run `ruff` and `mypy` on every commit. To run them manually:
+```bash
+uv run pre-commit run --all-files
+```
+
 # todo:
 - auth
 - task manager (taskiq?)
 - frontend, generate schema, tanstack
 - deploy config
-- linters
-- precommit
 - CI/CD
 - tests
 - smtp
 - healthcheck
-- vs code debug configs
