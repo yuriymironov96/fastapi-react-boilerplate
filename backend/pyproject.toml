@@ -23,3 +23,6 @@ dev = [
     "pytest>=9.0.1",
     "ruff>=0.14.6",
 ]
+
+[tool.mypy]
+mypy_path = "."
