@@ -6,6 +6,7 @@ from . import Base
 class User(Base):
     __tablename__ = "app_user"
 
+    # todo: remake to uuid
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True, index=True)
     username: Mapped[str] = mapped_column(index=True, unique=True)
     email: Mapped[str] = mapped_column(index=True, unique=True)

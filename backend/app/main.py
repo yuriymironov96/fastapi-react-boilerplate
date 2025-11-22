@@ -3,6 +3,7 @@ from fastapi.routing import APIRoute
 import sentry_sdk
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
+from app.admin import get_admin
 
 
 def custom_generate_unique_id(route: APIRoute) -> str:
@@ -13,6 +14,8 @@ app = FastAPI(
     title=settings.PROJECT_NAME,
     generate_unique_id_function=custom_generate_unique_id,
 )
+
+get_admin(app)
 
 
 if settings.SENTRY_DSN and settings.ENVIRONMENT != "local":
