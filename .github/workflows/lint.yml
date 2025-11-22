@@ -81,5 +81,14 @@ jobs:
         run: uv sync --group dev
 
       - name: Run tests
+        env:
+          PROJECT_NAME: "Test Project"
+          POSTGRES_SERVER: "fake"
+          POSTGRES_USER: "fake"
+          POSTGRES_PASSWORD: "fake"
+          POSTGRES_DB: "fake"
+          FIRST_SUPERUSER: "fake@test.com"
+          FIRST_SUPERUSER_PASSWORD: "fale"
+          SECRET_KEY: "fake-key"
         run: uv run pytest tests/
 
