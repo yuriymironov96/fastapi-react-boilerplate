@@ -5,8 +5,6 @@ import jwt
 from passlib.context import CryptContext
 
 from app.core.config import settings
-from app.models import User
-from sqlalchemy.ext.asyncio import AsyncSession
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
@@ -29,11 +27,10 @@ def get_password_hash(password: str) -> str:
     return pwd_context.hash(password)
 
 
-# TODO: move to crud
-async def get_current_user(session: AsyncSession, token: str) -> User | None:
+async def validate_token(token: str) -> str | None:
     try:
         payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[ALGORITHM])
         sub = payload.get("sub")
     except Exception:
         return None
-    return await session.get(User, int(sub))
+    return sub

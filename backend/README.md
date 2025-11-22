@@ -34,7 +34,7 @@ uv run python -m app.initial_data
 
 ```bash
 docker compose up postgres
-uv run uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+uv run uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
 # Migrations
@@ -51,7 +51,6 @@ uv run alembic upgrade head
 
 # todo:
 - auth
-- admin panel
 - task manager (taskiq?)
 - frontend, generate schema, tanstack
 - deploy config

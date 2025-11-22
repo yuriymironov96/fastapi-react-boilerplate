@@ -3,7 +3,7 @@ from typing import Any
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 
-from app.core.security import get_password_hash, verify_password
+from app.core.security import get_password_hash, validate_token, verify_password
 from app.models import User
 from app.schemas.user import UserCreate, UserUpdate
 
@@ -32,17 +32,24 @@ async def update_user(*, session: AsyncSession, db_user: User, user_in: UserUpda
     return db_user
 
 
-async def get_user_by_email(*, session: AsyncSession, email: str) -> User | None:
-    statement = select(User).where(User.email == email)
+async def get_user_by_username(*, session: AsyncSession, username: str) -> User | None:
+    statement = select(User).where(User.username == username)
     session_user = await session.execute(statement)
     session_user = session_user.scalar_one_or_none()
     return session_user
 
 
-async def authenticate(*, session: AsyncSession, email: str, password: str) -> User | None:
-    db_user = await get_user_by_email(session=session, email=email)
+async def authenticate(*, session: AsyncSession, username: str, password: str) -> User | None:
+    db_user = await get_user_by_username(session=session, username=username)
     if not db_user:
         return None
     if not verify_password(password, db_user.hashed_password):
         return None
     return db_user
+
+
+async def get_current_user(session: AsyncSession, token: str) -> User | None:
+    sub = await validate_token(token)
+    if not sub:
+        return None
+    return await session.get(User, int(sub))
