@@ -81,6 +81,8 @@ uv run pre-commit run --all-files
 # TODO:
 
 - auth
+- refresh token rotation
+- password reset and user-related stuff
 - task manager (taskiq?)
 - frontend, generate schema, tanstack
 - deploy config
