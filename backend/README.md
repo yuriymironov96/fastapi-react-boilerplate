@@ -78,10 +78,12 @@ The hooks will automatically run `ruff` and `mypy` on every commit. To run them 
 uv run pre-commit run --all-files
 ```
 
-# todo:
+# TODO:
+
 - auth
 - task manager (taskiq?)
+- S3
 - frontend, generate schema, tanstack
 - deploy config
-- smtp
 - healthcheck
+- smtp - maybe not priority, just use https://sabuhish.github.io/fastapi-mail/

@@ -37,6 +37,7 @@ async def test_create_user_with_superuser(test_db_session: AsyncSession):
     user = await create_user(session=test_db_session, user_create=user_create)
 
     assert user.is_superuser is True
+    assert user.id is not None
 
 
 @pytest.mark.asyncio
