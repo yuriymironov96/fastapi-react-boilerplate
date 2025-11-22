@@ -86,4 +86,5 @@ uv run pre-commit run --all-files
 - frontend, generate schema, tanstack
 - deploy config
 - healthcheck
+- maybe dependabot or some other development experience goodies
 - smtp - maybe not priority, just use https://sabuhish.github.io/fastapi-mail/
