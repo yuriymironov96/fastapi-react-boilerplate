@@ -59,3 +59,4 @@ uv run alembic upgrade head
 - tests
 - smtp
 - healthcheck
+- vs code debug configs
