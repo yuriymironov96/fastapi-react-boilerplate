@@ -23,8 +23,18 @@ dev = [
     "mypy>=1.18.2",
     "pre-commit>=3.9.0",
     "pytest>=9.0.1",
+    "pytest-asyncio>=0.25.2",
     "ruff>=0.14.6",
+    "aiosqlite>=0.20.0",
 ]
 
 [tool.mypy]
 mypy_path = "."
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["."]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

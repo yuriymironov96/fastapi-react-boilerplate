@@ -55,6 +55,12 @@ Apply:
 uv run alembic upgrade head
 ```
 
+# Tests
+
+```bash
+uv run pytest
+```
+
 # Linters
 
 Run manually:
