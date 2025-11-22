@@ -57,3 +57,4 @@ uv run alembic upgrade head
 - linters
 - CI/CD
 - tests
+- smtp
