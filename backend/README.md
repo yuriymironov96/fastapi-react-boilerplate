@@ -58,3 +58,4 @@ uv run alembic upgrade head
 - CI/CD
 - tests
 - smtp
+- healthcheck
