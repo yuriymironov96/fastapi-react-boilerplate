@@ -55,6 +55,7 @@ uv run alembic upgrade head
 - frontend, generate schema, tanstack
 - deploy config
 - linters
+- precommit
 - CI/CD
 - tests
 - smtp
