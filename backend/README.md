@@ -83,7 +83,5 @@ uv run pre-commit run --all-files
 - task manager (taskiq?)
 - frontend, generate schema, tanstack
 - deploy config
-- CI/CD
-- tests
 - smtp
 - healthcheck
