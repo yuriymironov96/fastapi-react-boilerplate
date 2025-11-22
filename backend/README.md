@@ -82,9 +82,9 @@ uv run pre-commit run --all-files
 
 - auth
 - task manager (taskiq?)
-- S3
 - frontend, generate schema, tanstack
 - deploy config
 - healthcheck
 - maybe dependabot or some other development experience goodies
-- smtp - maybe not priority, just use https://sabuhish.github.io/fastapi-mail/
+- S3 - maybe not priority, just use https://github.com/aio-libs/aiobotocore
+- smtp - maybe not priority, just use https://pypi.org/project/aiosmtplib/ or https://sabuhish.github.io/fastapi-mail/
