@@ -22,7 +22,9 @@ class AdminAuth(AuthenticationBackend):
             )
             if not authenticated_user or not authenticated_user.is_superuser:
                 return False
-            access_token_expires = timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
+            access_token_expires = timedelta(
+                minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES
+            )
             access_token = create_access_token(
                 authenticated_user.id, expires_delta=access_token_expires
             )
@@ -57,7 +59,14 @@ class UserAdmin(ModelView, model=User):
         User.is_superuser,
     ]
     column_labels = {"hashed_password": "Password"}
-    form_create_rules = ["username", "email", "first_name", "last_name", "hashed_password", "is_superuser"]
+    form_create_rules = [
+        "username",
+        "email",
+        "first_name",
+        "last_name",
+        "hashed_password",
+        "is_superuser",
+    ]
     form_edit_rules = ["username", "email", "first_name", "last_name", "is_superuser"]
 
     async def on_model_change(self, data, model, is_created, request) -> None:

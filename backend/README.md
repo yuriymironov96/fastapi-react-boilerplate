@@ -54,3 +54,6 @@ uv run alembic upgrade head
 - task manager (taskiq?)
 - frontend, generate schema, tanstack
 - deploy config
+- linters
+- CI/CD
+- tests
