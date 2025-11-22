@@ -12,7 +12,7 @@ sys.path.insert(0, str(backend_dir))
 
 from alembic import context  # noqa: E402
 from app.models import Base  # noqa: E402
-from asyncpg import Connection  # noqa: E402 # type: ignore
+from asyncpg import Connection  # type: ignore[import-untyped]  # noqa: E402
 from sqlalchemy import pool  # noqa: E402
 from sqlalchemy.ext.asyncio import async_engine_from_config  # noqa: E402
 from app.core.config import settings  # noqa: E402

@@ -17,8 +17,13 @@ class AdminAuth(AuthenticationBackend):
     async def login(self, request: Request) -> bool:
         form = await request.form()
         async with sessionmanager.session() as session:
-            username = form["username"]  # type: ignore
-            password = form["password"]  # type: ignore
+            username_field = form["username"]
+            password_field = form["password"]
+            # Ensure we have strings, not UploadFile
+            if not isinstance(username_field, str) or not isinstance(password_field, str):
+                return False
+            username: str = username_field
+            password: str = password_field
             if not username or not password:
                 return False
             authenticated_user = await authenticate(
