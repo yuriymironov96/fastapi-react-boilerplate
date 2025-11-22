@@ -1,11 +1,9 @@
-from typing import Any
-
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 
 from app.core.security import get_password_hash, validate_token, verify_password
 from app.models import User
-from app.schemas.user import UserCreate, UserUpdate
+from app.schemas.user import UserCreate
 
 
 async def create_user(*, session: AsyncSession, user_create: UserCreate) -> User:

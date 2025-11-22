@@ -8,7 +8,6 @@ from sqlalchemy.ext.asyncio import (
     async_sessionmaker,
     create_async_engine,
 )
-from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase
 
 
@@ -61,4 +60,3 @@ class DatabaseSessionManager:
 sessionmanager = DatabaseSessionManager(
     str(settings.SQLALCHEMY_DATABASE_URI), {"echo": settings.ECHO_SQL}
 )
-

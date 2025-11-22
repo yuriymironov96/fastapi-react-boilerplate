@@ -17,8 +17,12 @@ class AdminAuth(AuthenticationBackend):
     async def login(self, request: Request) -> bool:
         form = await request.form()
         async with sessionmanager.session() as session:
+            username = form["username"]  # type: ignore
+            password = form["password"]  # type: ignore
+            if not username or not password:
+                return False
             authenticated_user = await authenticate(
-                session=session, username=form["username"], password=form["password"]
+                session=session, username=username, password=password
             )
             if not authenticated_user or not authenticated_user.is_superuser:
                 return False
