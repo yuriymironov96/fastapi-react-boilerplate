@@ -42,6 +42,7 @@ uv run pre-commit install
 docker compose up postgres
 uv run uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
+Instead of `uv run uvicorn ...`, you can run a profile VS code, which will also let you use visual debugger.
 
 # Migrations
 
