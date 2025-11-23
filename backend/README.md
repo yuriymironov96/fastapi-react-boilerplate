@@ -81,7 +81,7 @@ uv run pre-commit run --all-files
 # TODO:
 
 - auth
-- refresh token rotation, good reseach here https://github.com/k4black/fastapi-jwt/tree/main but still not sure
+- refresh token rotation, good reseach here https://github.com/k4black/fastapi-jwt/tree/main but still not sure. Maybe just have long access token life for starters? https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/
 - password reset and user-related stuff
 - task manager, here is a strong candidate https://taskiq-python.github.io/, there is also https://arq-docs.helpmanual.io/ but it is poorly maintained
 - frontend, generate schema, tanstack

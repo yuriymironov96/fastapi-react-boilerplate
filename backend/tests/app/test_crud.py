@@ -159,4 +159,3 @@ async def test_get_current_user_nonexistent_user(test_db_session: AsyncSession):
     current_user = await get_current_user(session=test_db_session, token=token)
 
     assert current_user is None
-
