@@ -81,7 +81,7 @@ uv run pre-commit run --all-files
 # TODO:
 
 - auth
-- refresh token rotation
+- refresh token rotation, good reseach here https://github.com/k4black/fastapi-jwt/tree/main but still not sure
 - password reset and user-related stuff
 - task manager (taskiq?)
 - frontend, generate schema, tanstack
