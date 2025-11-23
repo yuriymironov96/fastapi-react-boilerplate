@@ -83,7 +83,7 @@ uv run pre-commit run --all-files
 - auth
 - refresh token rotation, good reseach here https://github.com/k4black/fastapi-jwt/tree/main but still not sure
 - password reset and user-related stuff
-- task manager (taskiq?)
+- task manager, here is a strong candidate https://taskiq-python.github.io/, there is also https://arq-docs.helpmanual.io/ but it is poorly maintained
 - frontend, generate schema, tanstack
 - deploy config
 - healthcheck
